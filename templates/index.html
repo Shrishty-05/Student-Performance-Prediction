@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Grade Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<div class="hero">
+    <div class="badge">AI · Deep Learning · Education</div>
+    <h1>Student <span>Grade</span><br>Predictor</h1>
+    <p>Enter previous grades to predict the<br>final period score (G3) instantly.</p>
+</div>
+
+<!-- ─── FORM CARD ─── -->
+<div class="card">
+    <div class="card-title">📋 Student Details</div>
+
+    <form method="POST">
+
+        <div class="input-row">
+            <input type="number" name="age" placeholder="Age" min="10" max="25" required>
+            <input type="number" name="g1" placeholder="G1 — Period 1" min="0" max="20" required>
+            <input type="number" name="g2" placeholder="G2 — Period 2" min="0" max="20" required>
+        </div>
+
+        <button type="submit">⚡ Predict Final Grade (G3)</button>
+    </form>
+</div>
+
+<!-- ─── RESULT ─── -->
+{% if prediction is not none %}
+
+<div class="result-wrap">
+
+    <!-- Score Card -->
+    <div class="result-score {{status}}">
+        <div class="score-num">
+            {{prediction}} <span>/20</span>
+        </div>
+        <div class="score-label">Predicted G3 Score</div>
+
+        <div class="status-pill {{status}}">
+            {% if status == "pass" %}
+                ✅ PASS
+            {% else %}
+                ❌ FAIL
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="grade-bar">
+        <div class="fill {{status}}" style="--width: {{pct}}%;"></div>
+    </div>
+
+</div>
+
+{% endif %}
+
+</body>
+</html>
