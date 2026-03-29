@@ -29,6 +29,7 @@ Model Training
 Linear Regression
 Random Forest Regressor
 Gradient Boosting Regressor
+KNN Regressor
 
 Model Evaluation
 R² Score
@@ -47,13 +48,8 @@ Pandas
 NumPy
 Scikit-learn
 Matplotlib / Seaborn
-Streamlit
+Flask
 
-How to Run
- 1. Install dependencies
-pip install -r requirements.txt
- 2. Run Streamlit app
-streamlit run app.py
 
  Application Features
 User inputs G1 and G2
