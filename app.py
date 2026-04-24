@@ -22,7 +22,7 @@ def index():
     g1 = g2 = age = None
 
     if request.method == "POST":
-        age = int(request.form.get("age"))
+        # age = int(request.form.get("age"))
         g1 = int(request.form.get("g1"))
         g2 = int(request.form.get("g2"))
 
@@ -50,4 +50,4 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
